@@ -12,25 +12,11 @@
       <h3>Películas nuevas</h3>
     </ion-row>
   </ion-grid>
-  <ion-slides>
-
-    <ion-slide>
-      Película 1
-    </ion-slide>
-    
-    <ion-slide>
-      Película 2
-    </ion-slide>
-
-    <ion-slide>
-      Película 3
-    </ion-slide>
-    
-    <ion-slide>
-      Película 4
-    </ion-slide>
-
-  </ion-slides>
+    <swiper>
+      <ng-template swiperSlide *ngFor="let pelicula of arrayPeliculas">
+        <ion-label>{{pelicula}}</ion-label>
+      </ng-template>
+    </swiper>
   <ion-card>
     <ion-card-header>
       <ion-card-title>Card Title</ion-card-title>
