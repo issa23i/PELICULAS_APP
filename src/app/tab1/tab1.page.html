@@ -12,11 +12,13 @@
       <h3>Películas nuevas</h3>
     </ion-row>
   </ion-grid>
-    <swiper>
+
+    <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
       <ng-template swiperSlide *ngFor="let pelicula of arrayPeliculas">
         <ion-label>{{pelicula}}</ion-label>
       </ng-template>
     </swiper>
+    
   <ion-card>
     <ion-card-header>
       <ion-card-title>Card Title</ion-card-title>
@@ -34,25 +36,11 @@
     </ion-row>
   </ion-grid>
 
-  <ion-slides>
-
-    <ion-slide>
-      Cartelera 1
-    </ion-slide>
-    
-    <ion-slide>
-      Cartelera 2
-    </ion-slide>
-
-    <ion-slide>
-      Cartelera 3
-    </ion-slide>
-    
-    <ion-slide>
-      Cartelera 4
-    </ion-slide>
-
-  </ion-slides>
+  <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+    <ng-template swiperSlide *ngFor="let cartelera of arrayCartelera">
+      <ion-label>{{cartelera}}</ion-label>
+    </ng-template>
+  </swiper>
 
   <ion-grid>
     <ion-row>
@@ -78,5 +66,8 @@
       Popular 4
     </ion-slide>
 
+    
+
   </ion-slides>
+
 </ion-content>
