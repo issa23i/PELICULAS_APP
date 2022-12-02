@@ -28,7 +28,7 @@ export class Tab1Page implements OnInit {
       this.arrayCartelera.push(`Cartelera ${i}`);
     }
     for (let i = 1; i < 21; i++) {
-      this.arrayCartelera.push(`Popular ${i}`);
+      this.arrayPopular.push(`Popular ${i}`);
     }
   }
 

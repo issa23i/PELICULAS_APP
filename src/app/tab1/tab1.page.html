@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  
   <ion-grid>
     <ion-row>
       <h3>Películas nuevas</h3>
@@ -48,26 +49,15 @@
     </ion-row>
   </ion-grid>
 
+  <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+    <ng-template swiperSlide *ngFor="let popular of arrayPopular">
+      <ion-label>{{popular}}</ion-label>
+    </ng-template>
+  </swiper>
+
   <ion-slides>
-
     <ion-slide>
-      Popular 1
     </ion-slide>
-    
-    <ion-slide>
-      Popular 2
-    </ion-slide>
-
-    <ion-slide>
-      Popular 3
-    </ion-slide>
-    
-    <ion-slide>
-      Popular 4
-    </ion-slide>
-
-    
-
   </ion-slides>
 
 </ion-content>
