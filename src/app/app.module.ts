@@ -7,10 +7,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http';
-import { ImagenPipe } from './pipes/imagen.pipe';
+/**import { ImagenPipe } from './pipes/imagen.pipe';*/
 
 @NgModule({
-  declarations: [AppComponent, ImagenPipe],
+  declarations: [AppComponent, /**ImagenPipe*/],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

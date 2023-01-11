@@ -1,17 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-const URL = 'https://image.tmdb.org/t/p/';
+const URL = 'https://image.tmdb.org/t/p';
 
 @Pipe({
   name: 'imagen'
 })
 export class ImagenPipe implements PipeTransform {
 
-  transform(img: string, size: string = 'v500'): string {
+  transform(img: string, size: string = 'w500'): string {
     if (!img) {
       return '';
     }
-    const imgUrl = `${URL}/${size}/${img}`;
+    const imgUrl = `${URL}/${size}${img}`;
     console.log('URL', imgUrl);
     return imgUrl;
   }

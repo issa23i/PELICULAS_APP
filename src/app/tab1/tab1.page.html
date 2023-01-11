@@ -16,8 +16,9 @@
 
     <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
       <ng-template swiperSlide *ngFor="let pelicula of peliculasRecientes">
-        <ion-label>{{pelicula.title}}</ion-label>
+        
         <ion-card>
+          <ion-label>{{pelicula.title}}</ion-label>
           <img [src]="pelicula.backdrop_path | imagen">
         </ion-card>
       </ng-template>
