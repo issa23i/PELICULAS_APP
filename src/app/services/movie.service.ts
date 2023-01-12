@@ -1,15 +1,53 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RespuestaMDB } from '../interfaces/interfaces';
+import { environment } from '../../environments/environment';
+
+
+const URL    = environment.url;
+const apiKey = environment.apikey;
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  constructor( private http: HttpClient) {}
+  constructor( private http: HttpClient) { }
 
-  getFeature(){
-    return this.http.get<RespuestaMDB>('https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2021-09-01&primary_release_date.lte=2021-11-15&api_key=09a5b4a4ca15c3d268a44d5d5fb83522&language=es&include_images_language=es');
+  private ejecutarQuery<T>( query: string ) {
+
+    query = URL + query;
+    query += `&api_key=${ apiKey }&language=es&include_image_language=es`;
+
+    return this.http.get<T>( query );
+
   }
+
+ 
+  getFeature() {
+
+    const hoy = new Date();
+    const ultimoDia = new Date( hoy.getFullYear(), hoy.getMonth() + 1, 0 ).getDate();
+    const mes = hoy.getMonth() + 1;
+
+    let mesString;
+
+    if ( mes < 10 ) {
+      mesString = '0' + mes;
+    } else {
+      mesString = mes;
+    }
+
+
+    const inicio = `${ hoy.getFullYear() }-${ mesString }-01`;
+    const fin    = `${ hoy.getFullYear() }-${ mesString }-${ ultimoDia }`;
+
+
+    // tslint:disable-next-line:max-line-length
+    return this.ejecutarQuery<RespuestaMDB>(`/discover/movie?primary_release_date.gte=${ inicio }&primary_release_date.lte=${ fin }`);
+
+
+  }
+
+
 }
