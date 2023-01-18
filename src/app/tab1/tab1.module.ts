@@ -20,7 +20,8 @@ import { PipesModule } from '../pipes/pipes.module';
     Tab1PageRoutingModule,
     SwiperModule,
     ComponentModule,
-    PipesModule
+    PipesModule,
+    ComponentModule
   ],
   declarations: [Tab1Page]
 })

@@ -13,8 +13,8 @@
       <h3>Películas nuevas</h3>
     </ion-row>
   </ion-grid>
-
-    <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
+<!-- 
+    <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true" [options]="slidesOpt">
       <ng-template swiperSlide *ngFor="let pelicula of peliculasRecientes">
         
         <ion-card>
@@ -23,7 +23,10 @@
         </ion-card>
       </ng-template>
     </swiper>
-    
+    -->
+
+    <app-slideshow-backdrop [peliculas]="peliculasRecientes"></app-slideshow-backdrop>
+
   <ion-card>
     <ion-card-header>
       <ion-card-title>Card Title</ion-card-title>
