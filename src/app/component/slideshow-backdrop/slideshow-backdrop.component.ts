@@ -14,12 +14,12 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 export class SlideshowBackdropComponent implements OnInit {
 
   @Input() peliculas: Pelicula[]=[];
-  
+  /** 
   slidesOpt= {
     slidesPerView:1.1,
     freemode : true
   }
-
+  */
   constructor() { }
 
   ngOnInit() {}
