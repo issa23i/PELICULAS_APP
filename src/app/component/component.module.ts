@@ -5,17 +5,23 @@ import { IonicModule } from '@ionic/angular';
 import { PipesModule } from '../pipes/pipes.module';
 import { SwiperModule } from 'swiper/angular';
 import SwiperCore from 'swiper';
+import { DetalleComponent } from './detalle/detalle.component';
 
 
 
 @NgModule({
-  declarations: [SlideshowBackdropComponent],
-  exports: [SlideshowBackdropComponent],
+  entryComponents: [
+    DetalleComponent,
+  ],
+  declarations: [SlideshowBackdropComponent,
+    DetalleComponent],
+  exports: [SlideshowBackdropComponent,
+    DetalleComponent],
   imports: [
     CommonModule,
     IonicModule,
     PipesModule,
-    SwiperModule
+    SwiperModule,
   ]
 })
 export class ComponentModule { }
