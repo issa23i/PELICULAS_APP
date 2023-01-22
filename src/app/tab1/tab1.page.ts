@@ -17,12 +17,12 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 export class Tab1Page implements OnInit {
 
   peliculasRecientes: Pelicula[] = [];
-  
+  /** 
   slidesOpt = {
     slidesPerView : 1.1,
     freemode : true
   };
-
+*/
   constructor( private movieService : MovieService) { }
 
 
