@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CLIENT_RENEG_LIMIT } from 'tls';
 
 @Component({
   selector: 'app-detalle',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detalle.component.scss'],
 })
 export class DetalleComponent implements OnInit {
+  
+  @Input() id: any;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("ID: ",this.id)
+  }
 
 }

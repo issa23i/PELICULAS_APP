@@ -22,7 +22,7 @@ export class SlideshowBackdropComponent implements OnInit {
     freemode : true
   }
   */
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {}
 
