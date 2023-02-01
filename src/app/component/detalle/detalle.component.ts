@@ -4,6 +4,7 @@ import { Cast, PeliculaDetalle } from 'src/app/interfaces/interfaces';
 import { CLIENT_RENEG_LIMIT } from 'tls';
 
 import { MovieService } from '../../services/movie.service';
+import { DataLocalService } from '../../services/data-local.service';
 
 @Component({
   selector: 'app-detalle',
@@ -29,7 +30,8 @@ export class DetalleComponent implements OnInit {
 
 
   constructor(private movieService: MovieService,
-    private modalCtrl: ModalController) { }
+    private modalCtrl: ModalController,
+    private datalocal: DataLocalService) { }
 
   ngOnInit() {
     // console.log('ID', this.id );
