@@ -25,6 +25,7 @@ export class Tab2Page {
       this.peliculas = []
       return
     }
+    
 
     console.log(valor)
     this.buscando = true
