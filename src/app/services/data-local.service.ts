@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PeliculaDetalle } from 'src/app/interfaces/interfaces';
 import {Storage} from '@ionic/storage'
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,18 @@ import {Storage} from '@ionic/storage'
 export class DataLocalService {
 
   peliculas: PeliculaDetalle[] = [];
-  constructor(private storage: Storage) { }
+
+  constructor(private storage: Storage,
+    private toastCtrl: ToastController) { 
+      this.cargarFavoritos();
+    }
+
+  async cargarFavoritos() {
+    const peliculas = await this.storage.get('peliculas');
+    this.peliculas = peliculas || [];
+    return this.peliculas;
+  }
+
   guardarPelicula( pelicula: PeliculaDetalle){
 
     let existe = false;
