@@ -54,4 +54,8 @@ export class DetalleComponent implements OnInit {
   regresar() {
     this.modalCtrl.dismiss();
   }
+
+  favorito() {
+    this.datalocal.guardarPelicula(this.pelicula);
+  }
 }
