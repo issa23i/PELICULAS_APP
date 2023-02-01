@@ -13,6 +13,16 @@ import { DataLocalService } from '../../services/data-local.service';
 })
 export class DetalleComponent implements OnInit {
 
+  /**
+   * Actividad: Consigue que el icono de estrella de favoritos esté relleno (star) cuando la película ya exista en favoritos
+y hueca (star-outline) cuando no lo esté. Consejos:
+detalle.component.html
+• Convierte en nombre del icono en una propiedad usando los [] . El valor será una variable.
+detalle.component.ts
+• Crea una variable que llamaremos estrella para controlar el nombre del icono. Se debe iniciar con ‘star’
+• Si la película existe, estrella tomará el valor ‘star’, en caso contrario, tomará el valor ‘star-outline’.
+   */
+
   @Input() id: any;
 
   pelicula: PeliculaDetalle = {};
