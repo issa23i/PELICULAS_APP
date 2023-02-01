@@ -10,7 +10,27 @@ export class DataLocalService {
   peliculas: PeliculaDetalle[] = [];
   constructor(private storage: Storage) { }
   guardarPelicula( pelicula: PeliculaDetalle){
-    this.peliculas.push(pelicula);
-    this.storage.set('peliculas', this.peliculas)
+
+    let existe = false;
+    let mensaje = '';
+
+    for ( const peli of this.peliculas) {
+      if ( peli.id === pelicula.id) {
+        existe = true;
+        break;
+      }
+    }
+
+    if (existe) {
+      this.peliculas = this.peliculas.filter( peli => peli.id !== pelicula.id);
+      mensaje = 'Removido de favoritos';
+    } else {
+      this.peliculas.push (pelicula);
+      mensaje = 'Agregada a favoritos'
+    }
+
+    this.storage.set('peliculas', this.peliculas);
+
+    return !existe;
   }
 }
