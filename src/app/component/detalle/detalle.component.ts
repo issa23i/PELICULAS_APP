@@ -33,9 +33,11 @@ export class DetalleComponent implements OnInit {
     private modalCtrl: ModalController,
     private datalocal: DataLocalService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     // console.log('ID', this.id );
 
+    const existe = await this.datalocal.existePelicula ( this.id);
+    console.log("Detalle Component:", existe);
 
     this.movieService.getPeliculaDetalle(this.id)
       .subscribe(resp => {
