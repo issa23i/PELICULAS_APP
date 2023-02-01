@@ -21,6 +21,13 @@ export class DataLocalService {
     return this.peliculas;
   }
 
+  async existePelicula (id :any) {
+    await this.cargarFavoritos();
+    const existe = this.peliculas.find( peli => peli.id == id);
+
+    return (existe) ? true : false;
+  }
+
   guardarPelicula( pelicula: PeliculaDetalle){
 
     let existe = false;
