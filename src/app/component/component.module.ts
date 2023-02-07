@@ -7,6 +7,7 @@ import { SwiperModule } from 'swiper/angular';
 import SwiperCore from 'swiper';
 import { DetalleComponent } from './detalle/detalle.component';
 import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.component';
+import { SlideshowParesComponent } from './slideshow-pares/slideshow-pares.component';
 
 
 
@@ -17,12 +18,14 @@ import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.co
   declarations: [
     SlideshowBackdropComponent,
     DetalleComponent,
-    SlideshowPosterComponent
+    SlideshowPosterComponent,
+    SlideshowParesComponent
   ],
   exports: [
     SlideshowBackdropComponent,
     DetalleComponent,
-    SlideshowPosterComponent
+    SlideshowPosterComponent,
+    SlideshowParesComponent
   ],
   imports: [
     CommonModule,
