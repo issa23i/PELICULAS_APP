@@ -1,0 +1,9 @@
+<swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true" [slidesPerView]="3.1" [loop]="true">
+  <ng-template swiperSlide *ngFor="let pelicula of peliculas">
+    
+    <ion-card (click)="verDetalle(pelicula.id)">
+
+      <img [src]="pelicula.poster_path | imagen">
+    </ion-card>
+  </ng-template>
+</swiper>

@@ -6,6 +6,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { SwiperModule } from 'swiper/angular';
 import SwiperCore from 'swiper';
 import { DetalleComponent } from './detalle/detalle.component';
+import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.component';
 
 
 
@@ -13,10 +14,16 @@ import { DetalleComponent } from './detalle/detalle.component';
   entryComponents: [
     DetalleComponent,
   ],
-  declarations: [SlideshowBackdropComponent,
-    DetalleComponent],
-  exports: [SlideshowBackdropComponent,
-    DetalleComponent],
+  declarations: [
+    SlideshowBackdropComponent,
+    DetalleComponent,
+    SlideshowPosterComponent
+  ],
+  exports: [
+    SlideshowBackdropComponent,
+    DetalleComponent,
+    SlideshowPosterComponent
+  ],
   imports: [
     CommonModule,
     IonicModule,

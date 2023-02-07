@@ -26,7 +26,7 @@
     -->
 
     <app-slideshow-backdrop [peliculas]="peliculasRecientes"></app-slideshow-backdrop>
-
+<!--
   <ion-card>
     <ion-card-header>
       <ion-card-title>Card Title</ion-card-title>
@@ -37,17 +37,16 @@
       Here's a small text description for the card content. Nothing more, nothing less.
     </ion-card-content>
   </ion-card>
-
+-->
   <ion-grid>
     <ion-row>
       <h3>Cartelera</h3>
     </ion-row>
   </ion-grid>
 
+  <app-slideshow-poster [peliculas]="peliculasRecientes"></app-slideshow-poster>
   <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
-    <ng-template swiperSlide *ngFor="let cartelera of peliculasRecientes">
-      <ion-label>{{cartelera.title}}</ion-label>
-    </ng-template>
+    
   </swiper>
 
   <ion-grid>
