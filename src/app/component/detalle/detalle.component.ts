@@ -50,6 +50,12 @@ detalle.component.ts
     const existe = await this.datalocal.existePelicula ( this.id);
     console.log("Detalle Component:", existe);
 
+   if( await existe) {
+      this.estrella  = 'star'
+    } else {
+      this.estrella = 'star-outline'
+    }
+
     this.movieService.getPeliculaDetalle(this.id)
       .subscribe(resp => {
         console.log(resp);
@@ -64,6 +70,7 @@ detalle.component.ts
 
   }
 
+  
   regresar() {
     this.modalCtrl.dismiss();
   }
