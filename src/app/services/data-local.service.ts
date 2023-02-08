@@ -17,7 +17,7 @@ export class DataLocalService {
 
     async presentToast(message: string) {
       const toast = await this.toastCtrl.create({
-        message: 'Película añadida a Favoritos',
+        message: message,
         duration: 1500,
         position: 'bottom'
       });
