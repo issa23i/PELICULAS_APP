@@ -12,10 +12,9 @@
       <h3>Favoritos</h3>
     </ion-row>
   </ion-grid>
+  <div *ngFor="let pelicula of peliculas">
+    <ion-row>
+      <ion-col>{{pelicula.title}}</ion-col>
+    </ion-row>
+  </div>
 </ion-content>
-
-<div *ngFor="let pelicula of peliculas">
-  <ion-row>
-    <ion-col>{{pelicula.title}}</ion-col>
-  </ion-row>
-</div>
