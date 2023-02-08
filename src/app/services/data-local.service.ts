@@ -15,11 +15,22 @@ export class DataLocalService {
       this.cargarFavoritos();
     }
 
+    async presentToast(message: string) {
+      const toast = await this.toastCtrl.create({
+        message: 'Película añadida a Favoritos',
+        duration: 1500,
+        position: 'bottom'
+      });
+  
+      await toast.present();
+    }
+
   async cargarFavoritos() {
     const peliculas = await this.storage.get('peliculas');
     this.peliculas = peliculas || [];
     return this.peliculas;
   }
+  
 
   async existePelicula (id :any) {
     await this.cargarFavoritos();
@@ -27,6 +38,8 @@ export class DataLocalService {
 
     return (existe) ? true : false;
   }
+  
+  
 
   guardarPelicula( pelicula: PeliculaDetalle){
 
@@ -47,6 +60,8 @@ export class DataLocalService {
       this.peliculas.push (pelicula);
       mensaje = 'Agregada a favoritos'
     }
+
+   this.presentToast(mensaje);
 
     this.storage.set('peliculas', this.peliculas);
 

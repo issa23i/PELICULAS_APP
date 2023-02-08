@@ -56,6 +56,8 @@ detalle.component.ts
       this.estrella = 'star-outline'
     }
 
+    
+
     this.movieService.getPeliculaDetalle(this.id)
       .subscribe(resp => {
         console.log(resp);
