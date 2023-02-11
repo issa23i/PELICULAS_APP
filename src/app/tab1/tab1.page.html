@@ -13,31 +13,10 @@
       <h3>Películas nuevas</h3>
     </ion-row>
   </ion-grid>
-<!-- 
-    <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true" [options]="slidesOpt">
-      <ng-template swiperSlide *ngFor="let pelicula of peliculasRecientes">
-        
-        <ion-card>
-          <ion-label>{{pelicula.title}}</ion-label>
-          <img [src]="pelicula.backdrop_path | imagen">
-        </ion-card>
-      </ng-template>
-    </swiper>
-    -->
+
 
     <app-slideshow-backdrop [peliculas]="peliculasRecientes"></app-slideshow-backdrop>
-<!--
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
-  </ion-card>
--->
+
   <ion-grid>
     <ion-row>
       <h3>Cartelera</h3>
@@ -45,9 +24,7 @@
   </ion-grid>
 
   <app-slideshow-poster [peliculas]="peliculasRecientes"></app-slideshow-poster>
-  <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
-    
-  </swiper>
+
 
   <ion-grid>
     <ion-row>
@@ -55,15 +32,9 @@
     </ion-row>
   </ion-grid>
 
-  <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true">
-    <ng-template swiperSlide *ngFor="let popular of peliculasRecientes">
-      <ion-label>{{popular.title}}</ion-label>
-    </ng-template>
-  </swiper>
+  <app-slideshow-pares [peliculasPopulares]="peliculasPopulares"></app-slideshow-pares>
 
-  <ion-slides>
-    <ion-slide>
-    </ion-slide>
-  </ion-slides>
+
+  <ion-slides></ion-slides>
 
 </ion-content>

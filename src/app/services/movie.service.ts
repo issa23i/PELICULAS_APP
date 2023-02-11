@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RespuestaMDB, PeliculaDetalle, RespuestaCredits } from '../interfaces/interfaces';
+import { RespuestaMDB, PeliculaDetalle, RespuestaCredits, Pelicula } from '../interfaces/interfaces';
 import { environment } from '../../environments/environment';
 
 
@@ -61,5 +61,7 @@ export class MovieService {
   getBuscarPeliculas( texto : string){
     return this.ejecutarQuery<any>(`/search/movie?query=${texto}`)
   }
-
+  getPopulares() {
+    return this.ejecutarQuery<RespuestaMDB>('/discover/movie?sort_by=popularity.desc?a=1')
+  }
 }

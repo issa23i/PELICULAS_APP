@@ -17,37 +17,23 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 export class Tab1Page implements OnInit {
 
   peliculasRecientes: Pelicula[] = [];
-  /** 
-  slidesOpt = {
-    slidesPerView : 1.1,
-    freemode : true
-  };
-*/
+  peliculasPopulares: Pelicula[] = [];
+  
   constructor( private movieService : MovieService) { }
 
-
-  /** 
-  arrayPeliculas: any[] = Array(0);
-  arrayCartelera: any[] = Array(0);
-  arrayPopular: any[] = Array(0);
-  */
   ngOnInit() {
 
     this.movieService.getFeature()
     .subscribe( (resp) => {
-      console.log('Resp',resp);
       this.peliculasRecientes = resp.results;
     });
-    /**
-    for (let i = 1; i < 21; i++) {
-      this.arrayPeliculas.push(`Pelicula ${i}`);
-    }
-    for (let i = 1; i < 21; i++) {
-      this.arrayCartelera.push(`Cartelera ${i}`);
-    }
-    for (let i = 1; i < 21; i++) {
-      this.arrayPopular.push(`Popular ${i}`);
-    } */
+    
+
+    this.movieService.getPopulares()
+    .subscribe( (resp) => {
+      this.peliculasPopulares = resp.results
+      console.log(resp)
+    })
   }
 
   
