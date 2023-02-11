@@ -19,6 +19,21 @@
     </ion-row>
   </ion-grid>
 
+<ion-grid>
+  <ion-row *ngFor="let fila of [0,1]; let i = index;">
+    <ion-col size="6"  *ngFor="let pelicula of peliculas.slice(i*2,i*2+2);">
+      <ion-card>
+        <img [alt]="pelicula.title" [src]="pelicula.poster_path | imagen" />
+        <ion-card-content>
+          <p>{{pelicula.release_date}}</p>
+          <p>{{pelicula.title}}</p>
+          </ion-card-content>
+      </ion-card>
+    </ion-col>
+   
+</ion-row>
+</ion-grid>
+
   <ion-list *ngIf="peliculas.length === 0">
     <ion-list-header>
       <ion-label>Ideas</ion-label>
