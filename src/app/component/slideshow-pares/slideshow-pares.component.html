@@ -2,7 +2,6 @@
   <ng-template swiperSlide *ngFor="let pelicula of peliculasPopulares">
     
     <ion-card (click)="verDetalle(pelicula.id)">
-
       <img [src]="pelicula.poster_path | imagen">
     </ion-card>
   </ng-template>

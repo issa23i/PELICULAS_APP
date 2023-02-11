@@ -6,9 +6,6 @@ import { Pelicula } from '../interfaces/interfaces';
 
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
-
-
-
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -32,7 +29,7 @@ export class Tab1Page implements OnInit {
     this.movieService.getPopulares()
     .subscribe( (resp) => {
       this.peliculasPopulares = resp.results
-      console.log(resp)
+      console.log(resp.results)
     })
   }
 

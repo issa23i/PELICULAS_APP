@@ -31,7 +31,6 @@ export class Tab2Page {
     this.buscando = true
     this.MovieService.getBuscarPeliculas(valor)
       .subscribe ( resp => {
-        console.log(resp)
         this.peliculas = resp['results']
       })
   }

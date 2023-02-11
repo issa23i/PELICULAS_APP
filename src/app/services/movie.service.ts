@@ -62,6 +62,6 @@ export class MovieService {
     return this.ejecutarQuery<any>(`/search/movie?query=${texto}`)
   }
   getPopulares() {
-    return this.ejecutarQuery<RespuestaMDB>('/discover/movie?sort_by=popularity.desc?a=1')
+    return this.ejecutarQuery<RespuestaMDB>('/discover/movie?sort_by=popularity.desc')
   }
 }
