@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { IonicSlides, ModalController } from '@ionic/angular';
 import { Cast, PeliculaDetalle } from 'src/app/interfaces/interfaces';
 import { CLIENT_RENEG_LIMIT } from 'tls';
 
 import { MovieService } from '../../services/movie.service';
 import { DataLocalService } from '../../services/data-local.service';
+import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
+
+SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
 @Component({
   selector: 'app-detalle',
@@ -15,7 +18,7 @@ export class DetalleComponent implements OnInit {
 
   @Input() id: any;
 
-  pelicula: PeliculaDetalle = {};
+  pelicula: PeliculaDetalle = {poster_path: '', id: ''};
   actores: Cast[] = [];
   oculto = 150;
   estrella = 'star-outline';
@@ -52,6 +55,14 @@ export class DetalleComponent implements OnInit {
 
   }
 
+  async star(id:string){
+    const existe = await this.datalocal.existePelicula ( this.id);
+    if( await existe) {
+      this.estrella  = 'star'
+    } else {
+      this.estrella = 'star-outline'
+    }
+  }
   
   regresar() {
     this.modalCtrl.dismiss();
@@ -59,5 +70,7 @@ export class DetalleComponent implements OnInit {
 
   favorito() {
     this.datalocal.guardarPelicula(this.pelicula);
+    this.star(this.id)
+    this.datalocal.cargarFavoritos()
   }
 }

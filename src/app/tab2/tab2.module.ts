@@ -8,6 +8,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 import { ComponentModule } from '../component/component.module';
 import { PipesModule } from '../pipes/pipes.module';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { PipesModule } from '../pipes/pipes.module';
     Tab2PageRoutingModule,
     ComponentModule,
     PipesModule,
-    ComponentModule
+    SwiperModule
   ],
   declarations: [Tab2Page]
 })

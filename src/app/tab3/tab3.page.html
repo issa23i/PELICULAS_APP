@@ -12,9 +12,17 @@
       <h3>Favoritos</h3>
     </ion-row>
   </ion-grid>
-  <div *ngFor="let pelicula of peliculas">
-    <ion-row>
-      <ion-col>{{pelicula.title}}</ion-col>
-    </ion-row>
-  </div>
+  <ion-grid>
+    <ion-row *ngFor="let pelicula of peliculas">
+      
+        <ion-card (click)="verDetalle(pelicula.id)">
+          <img [alt]="pelicula.title" [src]="pelicula.poster_path | imagen" />
+          <ion-card-content>
+            <p>{{pelicula.release_date}}</p>
+            <p>{{pelicula.title}}</p>
+            </ion-card-content>
+        </ion-card>
+     
+  </ion-row>
+  </ion-grid>
 </ion-content>

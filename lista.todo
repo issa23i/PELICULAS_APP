@@ -1,3 +1,1 @@
-- (Arreglar) En slideshow-pares.ts con el @input la lista de peliculasPopulares llega vacía, 
-             cuando en tab1.html se está enviando una lista completa.
 - (Preguntar) ¿qué se hace con la lista de sugerencias en tab2?

@@ -22,7 +22,7 @@
 <ion-grid>
   <ion-row *ngFor="let fila of [0,1]; let i = index;">
     <ion-col size="6"  *ngFor="let pelicula of peliculas.slice(i*2,i*2+2);">
-      <ion-card>
+      <ion-card (click)="verDetalle(pelicula.id)">
         <img [alt]="pelicula.title" [src]="pelicula.poster_path | imagen" />
         <ion-card-content>
           <p>{{pelicula.release_date}}</p>

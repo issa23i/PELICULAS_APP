@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { IonicSlides, ModalController } from '@ionic/angular';
+import { DetalleComponent } from '../component/detalle/detalle.component';
 import { Pelicula } from '../interfaces/interfaces';
 import { MovieService } from '../services/movie.service';
+import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
+
+SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
 @Component({
   selector: 'app-tab2',
@@ -34,5 +38,13 @@ export class Tab2Page {
         this.peliculas = resp['results']
       })
   }
-
+  async verDetalle(id:string){
+    const modal = await this.modalCtrl.create({
+      component: DetalleComponent,
+      componentProps: {
+        id
+      }
+    });
+    modal.present();
+  }
 }
