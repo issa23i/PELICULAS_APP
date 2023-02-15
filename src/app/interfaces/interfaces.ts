@@ -102,3 +102,8 @@ export interface Cast {
   order: number;
   profile_path?: string;
 }
+
+export interface GenrePelis {
+  genero: Genre;
+  peliculas: PeliculaDetalle[]
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Genre, PeliculaDetalle } from '../interfaces/interfaces';
+import { Genre, GenrePelis, PeliculaDetalle } from '../interfaces/interfaces';
 import { DataLocalService } from '../services/data-local.service';
 import { IonicSlides, ModalController } from '@ionic/angular';
 import { DetalleComponent } from '../component/detalle/detalle.component';
@@ -17,7 +17,13 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 export class Tab3Page implements OnInit {
 
   peliculas: PeliculaDetalle[] = []
-  //favoritoGenero: any[] = []
+  generosPelis: GenrePelis = {
+    genero: {
+      id: 0,
+      name: ''
+    },
+    peliculas: []
+  }
   generos: Genre[] = []
 
 
@@ -77,7 +83,7 @@ export class Tab3Page implements OnInit {
 
 }
 
-function mostrar(favoritoGenero: PeliculaDetalle[],genero: Genre) {
-  throw new Error('Function not implemented.');
+function mostrar( favoritoGenero: PeliculaDetalle[],genero: Genre) {
+  generosPelis = {genero,favoritoGenero}
 }
 
