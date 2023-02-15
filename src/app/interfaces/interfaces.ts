@@ -30,7 +30,7 @@ export interface PeliculaDetalle {
   backdrop_path?: string;
   belongs_to_collection?: any;
   budget?: number;
-  genres?: Genre[];
+  genres: Genre[];
   homepage?: string;
   id: string;
   imdb_id?: string;

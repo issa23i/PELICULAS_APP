@@ -17,7 +17,7 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 export class Tab3Page implements OnInit {
 
   peliculas: PeliculaDetalle[] = []
-  favoritoGenero: any[] = []
+  //favoritoGenero: any[] = []
   generos: Genre[] = []
 
 
@@ -47,11 +47,37 @@ export class Tab3Page implements OnInit {
     this.movieSrv.getGeneros().subscribe( (resp: any) => {
       this.generos =  resp.genres
       console.log(this.generos)
-      this.generos.forEach((p:Genre) => {
-        console.log(p.id)
-        
+
+      this.generos.forEach((genero :Genre) => {
+        console.log(genero.id)
+        const favoritoGenero: PeliculaDetalle[] = []
+
+        this.peliculas.forEach( (peli: PeliculaDetalle) => {
+          peli.genres.forEach((genr: Genre) => {
+            // si el genero de la película es igual al género del array géneros
+            if(genr.id === genero.id){
+              favoritoGenero.push(peli)
+            }
+          });
+
+          // si tiene peliculas mostrar
+          if (favoritoGenero.length>0){
+            mostrar(favoritoGenero, genero)
+          }
+        })
+
+
       })
+
+
+      
+      
     })
   }
 
 }
+
+function mostrar(favoritoGenero: PeliculaDetalle[],genero: Genre) {
+  throw new Error('Function not implemented.');
+}
+

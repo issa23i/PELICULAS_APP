@@ -18,7 +18,7 @@ export class DetalleComponent implements OnInit {
 
   @Input() id: any;
 
-  pelicula: PeliculaDetalle = {poster_path: '', id: ''};
+  pelicula: PeliculaDetalle = {poster_path: '', id: '', genres: []};
   actores: Cast[] = [];
   oculto = 150;
   estrella = 'star-outline';
