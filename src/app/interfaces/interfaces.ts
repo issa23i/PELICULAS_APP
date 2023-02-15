@@ -25,6 +25,7 @@ export interface Pelicula {
 }
 
 export interface PeliculaDetalle {
+  [x: string]: any;
   adult?: boolean;
   backdrop_path?: string;
   belongs_to_collection?: any;
@@ -69,7 +70,7 @@ interface Productioncompany {
   origin_country: string;
 }
 
-interface Genre {
+export interface Genre {
   id: number;
   name: string;
 }
