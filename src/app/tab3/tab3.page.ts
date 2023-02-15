@@ -28,7 +28,7 @@ export class Tab3Page implements OnInit {
   async ngOnInit() {
     this.peliculas = await this.datalocal.cargarFavoritos()
     console.log(this.peliculas)
-    console.log(this.pelisPorGenero())
+    this.pelisPorGenero()
   }
   async verDetalle(id:string){
     const modal = await this.modalCtrl.create({
@@ -43,10 +43,21 @@ export class Tab3Page implements OnInit {
     modal.present();
   }
 
-  async pelisPorGenero(){
+  async pelisPorGenero (){
     this.movieSrv.getGeneros().subscribe( (resp) => {
-      this.generos = resp
+      this.generos =  resp
       console.log(this.generos)
+      return  this.generos
+      // tengo que poner aquí la siguiente función
     })
+  }
+
+  async verGeneros(genres: Genre[]){
+    await this.pelisPorGenero()
+    await console.log(this.generos.length)
+    this.generos.forEach((gen: Genre) => {
+      console.log(gen)
+    });
+    
   }
 }
