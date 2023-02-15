@@ -5,7 +5,6 @@ import { IonicSlides, ModalController } from '@ionic/angular';
 import { DetalleComponent } from '../component/detalle/detalle.component';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 import { MovieService } from '../services/movie.service';
-import { Observable } from 'rxjs';
 
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
@@ -30,7 +29,6 @@ export class Tab3Page implements OnInit {
     private movieSrv: MovieService) {}
   async ngOnInit() {
     this.peliculas = await this.datalocal.cargarFavoritos()
-    console.log(this.peliculas)
     this.pelisPorGenero()
   }
   async verDetalle(id:string){
@@ -53,7 +51,7 @@ export class Tab3Page implements OnInit {
       // iteramos por los géneros
       this.generos.forEach((genero :Genre) => {
         // creamos un array el género que almacenará las películas de dicho género
-        const favoritoGenero: PeliculaDetalle[] = []
+        const favoritasGenero: PeliculaDetalle[] = []
 
         // iteramos por las películas
         this.peliculas.forEach( (peli: PeliculaDetalle) => {
@@ -63,14 +61,14 @@ export class Tab3Page implements OnInit {
             // si el genero de la película es igual al género del array géneros
             if(genr.id === genero.id){
               // añadimos la película al array de ese género
-              favoritoGenero.push(peli)
+              favoritasGenero.push(peli)
             }
           });
 
           
         })
         // si tiene peliculas el género
-        if (favoritoGenero.length>0){
+        if (favoritasGenero.length>0){
           // una intefaz creada por mí, para manejar un array de  películas por cada género
           // la inicializo con los datos del genero y el array de películas
             const generoPelis: GenrePelis = {
@@ -78,7 +76,7 @@ export class Tab3Page implements OnInit {
                 id: genero.id,
                 name: genero.name
               },
-              peliculas: favoritoGenero
+              peliculas: favoritasGenero
             }
           // añadimos el objeto GenrePelis al array generosPelis
           this.generosPelis.push(generoPelis)
