@@ -17,13 +17,10 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 export class Tab3Page implements OnInit {
 
   peliculas: PeliculaDetalle[] = []
-  generosPelis: GenrePelis = {
-    genero: {
-      id: 0,
-      name: ''
-    },
-    peliculas: []
-  }
+  
+  // almacena todos los objetos de la interfaz creada por mi
+  generosPelis: GenrePelis[] = []
+  // almacena todos los géneros
   generos: Genre[] = []
 
 
@@ -52,38 +49,48 @@ export class Tab3Page implements OnInit {
   async pelisPorGenero (){
     this.movieSrv.getGeneros().subscribe( (resp: any) => {
       this.generos =  resp.genres
-      console.log(this.generos)
 
+      // iteramos por los géneros
       this.generos.forEach((genero :Genre) => {
-        console.log(genero.id)
+        // creamos un array el género que almacenará las películas de dicho género
         const favoritoGenero: PeliculaDetalle[] = []
 
+        // iteramos por las películas
         this.peliculas.forEach( (peli: PeliculaDetalle) => {
+
+          // iteramos por cada género de la película
           peli.genres.forEach((genr: Genre) => {
             // si el genero de la película es igual al género del array géneros
             if(genr.id === genero.id){
+              // añadimos la película al array de ese género
               favoritoGenero.push(peli)
             }
           });
 
-          // si tiene peliculas mostrar
-          if (favoritoGenero.length>0){
-            mostrar(favoritoGenero, genero)
-          }
+          
         })
-
-
+        // si tiene peliculas el género
+        if (favoritoGenero.length>0){
+          // una intefaz creada por mí, para manejar un array de  películas por cada género
+          // la inicializo con los datos del genero y el array de películas
+            const generoPelis: GenrePelis = {
+              genero: {
+                id: genero.id,
+                name: genero.name
+              },
+              peliculas: favoritoGenero
+            }
+          // añadimos el objeto GenrePelis al array generosPelis
+          this.generosPelis.push(generoPelis)
+        }
       })
 
-
-      
-      
     })
+    console.log(this.generosPelis)
   }
 
+ 
 }
 
-function mostrar( favoritoGenero: PeliculaDetalle[],genero: Genre) {
-  generosPelis = {genero,favoritoGenero}
-}
+
 
