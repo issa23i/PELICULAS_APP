@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RespuestaMDB, PeliculaDetalle, RespuestaCredits, Pelicula } from '../interfaces/interfaces';
+import { RespuestaMDB, PeliculaDetalle, RespuestaCredits, Genre, Pelicula } from '../interfaces/interfaces';
 import { environment } from '../../environments/environment';
 
 
@@ -63,5 +63,9 @@ export class MovieService {
   }
   getPopulares() {
     return this.ejecutarQuery<RespuestaMDB>('/discover/movie?sort_by=popularity.desc')
+  }
+
+  getGeneros() {
+    return this.ejecutarQuery<Genre[]>('/genre/movie/list?a=1')
   }
 }

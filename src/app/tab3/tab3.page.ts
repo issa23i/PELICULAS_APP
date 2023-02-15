@@ -4,6 +4,8 @@ import { DataLocalService } from '../services/data-local.service';
 import { IonicSlides, ModalController } from '@ionic/angular';
 import { DetalleComponent } from '../component/detalle/detalle.component';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
+import { MovieService } from '../services/movie.service';
+import { Observable } from 'rxjs';
 
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
@@ -20,10 +22,13 @@ export class Tab3Page implements OnInit {
 
 
 
-  constructor(private datalocal : DataLocalService, private modalCtrl : ModalController) {}
+  constructor(private datalocal : DataLocalService, 
+    private modalCtrl : ModalController,
+    private movieSrv: MovieService) {}
   async ngOnInit() {
     this.peliculas = await this.datalocal.cargarFavoritos()
     console.log(this.peliculas)
+    console.log(this.pelisPorGenero())
   }
   async verDetalle(id:string){
     const modal = await this.modalCtrl.create({
@@ -38,13 +43,10 @@ export class Tab3Page implements OnInit {
     modal.present();
   }
 
-  async pelisPorGenero(genre:Genre[], peliculas: PeliculaDetalle[]){
-    peliculas = await peliculas
-    genre.forEach(genero => {
-      for (const peli of peliculas) {
-        //if(peli.genres)
-        // habría que hacer un array de géneros?
-      }
-    });
+  async pelisPorGenero(){
+    this.movieSrv.getGeneros().subscribe( (resp) => {
+      this.generos = resp
+      console.log(this.generos)
+    })
   }
 }
