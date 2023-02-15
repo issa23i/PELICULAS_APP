@@ -12,7 +12,7 @@
       <h3>Favoritos</h3>
     </ion-row>
   </ion-grid>
-  <ion-grid>
+  <!-- <ion-grid>
     <ion-row *ngFor="let pelicula of peliculas">
       
         <ion-card (click)="verDetalle(pelicula.id)">
@@ -24,5 +24,23 @@
         </ion-card>
      
   </ion-row>
+  </ion-grid> -->
+  <ion-grid>
+    <ion-row *ngFor="let genero of generosPelis">
+      <ion-col size="12">
+        <h2>{{genero.genero.name}}</h2>
+        <swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="true" [zoom]="true"
+          [slidesPerView]="1" [loop]="true">
+          <ng-template swiperSlide *ngFor="let pelicula of genero.peliculas">
+            <ion-card (click)="verDetalle(pelicula.id)">
+              <img [src]="pelicula.poster_path | imagen">
+            </ion-card>
+          </ng-template>
+        </swiper>
+      </ion-col>
+    </ion-row>
   </ion-grid>
+
+
+  <ion-slides></ion-slides>
 </ion-content>

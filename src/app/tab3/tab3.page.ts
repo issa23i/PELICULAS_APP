@@ -26,7 +26,10 @@ export class Tab3Page implements OnInit {
 
   constructor(private datalocal : DataLocalService, 
     private modalCtrl : ModalController,
-    private movieSrv: MovieService) {}
+    private movieSrv: MovieService) {
+      
+    this.datalocal.cargarFavoritos()
+    }
   async ngOnInit() {
     this.peliculas = await this.datalocal.cargarFavoritos()
     this.pelisPorGenero()
